@@ -1,0 +1,20 @@
+---
+title: ""
+output: html_document
+params:
+  p.descr: ""
+  p.plot: ""
+---
+
+
+## What is this Report about?
+
+```{r include_markdown, echo=FALSE, results='asis'}
+external_content <- readLines(here("input/", params$p.descr), warn=FALSE)
+cat(external_content, sep = "\n")
+```
+
+## And this is the distribution
+```{r echo=FALSE, fig.width=10, fig.align='center', fig.height=5}
+knitr::include_graphics(params$p.plot)
+```
